@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Simple login</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <ng-container *ngIf="userService.loggedIn()">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/public">Public</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/private">Private</a>
+                </li>
+            </ng-container>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <ng-container *ngIf="!userService.loggedIn(); else logout">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/signin">Sign in</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/signup">Sign up</a>
+                </li>
+            </ng-container>
+            <ng-template #logout>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" (click)="userService.logOut()">Log Out</a>
+                </li>
+            </ng-template>
+        </ul>
+    </div>
+</nav>

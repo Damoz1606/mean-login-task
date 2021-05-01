@@ -1,0 +1,25 @@
+<div class="mx-auto">
+    <div class="card">
+        <div class="card-header text-center">
+            <h5>Sign up</h5>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="signUp()">
+                <div class="form-group">
+                    <input [(ngModel)]="user.email" type="email" name="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="user.password" type="password" name="password" class="form-control"
+                        placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-secondary btn-block">Sign up</button>
+                </div>
+            </form>
+
+            <div class="text-center">
+                <p>Do you have an account? <a routerLink="/signin">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+</div>

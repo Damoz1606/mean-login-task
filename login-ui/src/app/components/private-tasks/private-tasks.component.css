@@ -1,0 +1,58 @@
+input {
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  box-shadow: none;
+  border: 1px solid rgb(0, 183, 255);
+}
+
+.list-group-item {
+  background-color: #f8f9fa;
+}
+
+.input-group .btn {
+  border-radius: 0rem 0.23rem 0.23rem 0rem;
+}
+
+.input-group input {
+  padding-left: 0;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.list-group-item {
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+p.text-middle {
+  padding: 0.5rem 0;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.input-transparent input {
+  padding-left: 0;
+  background-color: #f8f9fa;
+  border: 1px solid transparent;
+}
+
+.input-group input:focus,
+.input-transparent input:focus {
+  border-bottom: 1px solid rgb(0, 183, 255);
+  border-radius: 0px;
+}
+
+.input-transparent input:focus {
+  margin-bottom: 5px;
+}
+
+.list-btn button {
+  border: none;
+}

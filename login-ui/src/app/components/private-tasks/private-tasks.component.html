@@ -1,0 +1,45 @@
+<form #ngTask="ngForm" (ngSubmit)="saveTask(ngTask)">
+    <div class="form-group d-flex input-group">
+        <input [(ngModel)]="newTask.description" type="text" name="description" class="form-control" placeholder="Task">
+        <button type="submit" class="btn btn-secondary"><span class="fa fa-save"></span> Save</button>
+    </div>
+</form>
+
+<hr />
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let task of tasks">
+        <ng-container *ngIf="selectedTask._id != task._id">
+            <div class="d-flex">
+                <div class="col-sm">
+                    <p class="text-middle">{{task.description}}</p>
+                </div>
+                <div class="btn-group col-sm-auto p-1">
+                    <button type="button" [class]="task.done ? 'btn btn-success': 'btn btn-secondary'"
+                        (click)="changeCheckTask(task)"><span class="fa fa-clipboard-check"></span></button>
+                    <button type="button" [class]="task.visibility ? 'btn btn-success': 'btn btn-secondary'"
+                        (click)="changeVisibilityTask(task)"><span class="fa fa-eye"></span></button>
+                </div>
+                <div class="btn-group col-sm-auto">
+                    <button class="btn btn-light bg-transparent" (click)="setEditableTask(task)"><span
+                            class="fa fa-edit"></span></button>
+                    <button class="btn btn-light bg-transparent" (click)="deleteTask(task)"><span
+                            class="fa fa-trash"></span></button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="selectedTask._id == task._id">
+            <form class="d-flex" (ngSubmit)="updateTask(task)">
+                <div class="form-group col-sm input-transparent">
+                    <input [(ngModel)]="task.description" type="text" name="description" class="form-control col-sm"
+                        placeholder="Description" autofocus>
+                </div>
+                <div class="btn-group col-sm-auto list-btn">
+                    <button type="submit" class="btn btn-light"><span class="fa fa-save"></span></button>
+                    <button type="button" class="btn btn-light" (click)="unsetEditableTask()"><span
+                            class="fa fa-times"></span></button>
+                </div>
+            </form>
+        </ng-container>
+    </li>
+</ul>
